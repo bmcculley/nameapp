@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="panel panel-default cu-form">
+	<div class="panel-body">
+		<form action="/auth/create" method="post">
+			<label class="text-muted" for="email">Email:</label>
+			<input name="email" class="form-control" id="email" type="text" />
+			<label class="text-muted" for="name">Name:</label>
+			<input name="name" class="form-control" id="name" type="text">
+			<label class="text-muted" for="password">Password:</label>
+			<input name="password" class="form-control" id="password" type="password" />
+		  {% module xsrf_form_html() %}
+		  <input type="submit" class="btn btn-primary pull-right" value="Create New User" />
+		</form>
+	</div>
+</div>
+{% end %}

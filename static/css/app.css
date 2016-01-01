@@ -1,0 +1,34 @@
+body {
+  padding-top: 70px;
+}
+
+.cu-form {
+  margin: 0 auto;
+  max-width: 300px;
+  width: 100%;
+  -webkit-box-shadow: 0 0 5px#888;
+    -moz-box-shadow: 0 0 5px #888;
+      box-shadow: 0 0 5px #888;
+}
+
+.cu-form .form-control,
+.compose .form-control,
+.modal-compose .form-control {
+  margin-bottom: 15px;
+}
+
+#cpform {
+  -webkit-box-shadow: 4px 3px 5px 0px rgba(51,51,51,0.5);
+    -moz-box-shadow: 4px 3px 5px 0px rgba(51,51,51,0.5);
+      box-shadow: 4px 3px 5px 0px rgba(51,51,51,0.5);
+}
+
+#show-add {
+  -webkit-box-shadow: 3px 2px 5px 0px rgba(51,51,51,0.95);
+    -moz-box-shadow: 3px 2px 5px 0px rgba(51,51,51,0.95);
+      box-shadow: 3px 2px 5px 0px rgba(51,51,51,0.95);
+}
+
+.cl-cpform {
+	margin-right: 10px;
+}

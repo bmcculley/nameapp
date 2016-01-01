@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block body %}
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form action="{{ request.path }}" method="post" class="compose">
+      <div class="row">
+        <div class="col-lg-6">
+          <input name="firstname" type="text" class="form-control" id="firstname" value="{{ entry.firstname if entry else "" }}" placeholder="First Name"/>
+        </div>
+        <div class="col-lg-6">
+          <input name="lastname" type="text" class="form-control" id="lastname" value="{{ entry.lastname if entry else "" }}" placeholder="Last Name"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <input name="dob" type="text" class="form-control" id="dob" value="{{ entry.dob if entry else "" }}" placeholder="Date of birth (YYYY-MM-DD)" data-inputmask="'alias': 'yyyy-mm-dd'"/>
+        </div>
+        <div class="col-lg-6">
+          <input name="zip_code" type="text" class="form-control" id="zip_code" value="{{ entry.zip_code if entry else "" }}" placeholder="Zip code"/>
+        </div>
+      </div>
+      <input type="submit" value="{{ _("Save changes") if entry else _("Create Person") }}" class="btn btn-primary pull-right"/>
+
+      {% if entry %}
+        <input type="hidden" name="id" value="{{ entry.id }}"/>
+      {% end %}
+      {% module xsrf_form_html() %}
+    </form>
+  </div>
+</div>
+{% end %}
+
+{% block bottom %}
+<script src="{{ static_url("js/create.js") }}"></script>
+<script src="{{ static_url("js/inputmask.min.js") }}"></script>
+<script src="{{ static_url("js/jquery.inputmask.min.js") }}"></script>
+<script src="{{ static_url("js/inputmask.date.extensions.min.js") }}"></script>
+{% end %}

@@ -1,0 +1,11 @@
+<tr>
+	<td>{{ person.firstname }}</td>
+	<td>{{ person.lastname }}</td>
+	<td>{{ person.dob }}</td>
+	<td>{{ person.zip_code }}</td>
+	{% if current_user %}
+	<td><a href="/create?id={{ person.id }}" class="e-link" data-toggle="modal" data-target="#updateModal" data-pid="{{ person.id }}">{{ _("Edit") }}</a>&nbsp;&nbsp;
+		<a href="/create?id={{ person.id }}&d=t" title="Delete" class="d-link text-danger"><i class="glyphicon glyphicon-trash"></i></a>
+	</td>
+	{% end %}
+</tr>

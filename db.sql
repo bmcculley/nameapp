@@ -1,0 +1,22 @@
+SET SESSION storage_engine = "InnoDB";
+SET SESSION time_zone = "+0:00";
+ALTER DATABASE CHARACTER SET "utf8";
+
+DROP TABLE IF EXISTS persons;
+CREATE TABLE persons (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    author_id INT NOT NULL REFERENCES users(id),
+    firstname VARCHAR(100) NOT NULL,
+    lastname VARCHAR(100) NOT NULL,
+    dob DATE NOT NULL,
+    zip_code VARCHAR(50) NOT NULL
+);
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    name VARCHAR(100) NOT NULL,
+    hashed_password VARCHAR(100) NOT NULL,
+    access_level INT NOT NULL
+);
