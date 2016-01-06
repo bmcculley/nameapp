@@ -46,7 +46,7 @@ class Application(tornado.web.Application):
             static_path=os.path.join(os.path.dirname(__file__), "static"),
             ui_modules={"Person": PersonModule},
             xsrf_cookies=True,
-            cookie_secret="cookie_secret",
+            cookie_secret="__TODO:_GENERATE_YOUR_OWN_RANDOM_VALUE_HERE__",
             login_url="/auth/login",
             debug=True,
         )
@@ -202,6 +202,8 @@ class AuthCreateHandler(BaseHandler):
     @gen.coroutine
     def post(self):
         access_level = 1
+        if not self.admin_exists():
+            access_level = 10
         hashed_password = yield executor.submit(
             bcrypt.hashpw, tornado.escape.utf8(self.get_argument("password")),
             bcrypt.gensalt())
@@ -217,9 +219,9 @@ class AuthCreateHandler(BaseHandler):
 class AuthLoginHandler(BaseHandler):
     def get(self):
         print repr(self.request.remote_ip)
-        # If there isn't an admin, redirect to the account creation page.
+        # If there isn't an admin, create.
         if not self.admin_exists():
-            self.redirect("/auth/create")
+            self.render("create_user.html")
         else:
             self.render("login.html", error=None)
 
