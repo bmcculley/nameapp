@@ -22,7 +22,7 @@ $(function() {
     console.log("posting ajax");
     $.ajax({
       type : "POST",
-      url : "http://localhost:8888/auth/login",
+      url : "/auth/login",
         dataType : "json",
         data: {
           email: $("#email").val(),

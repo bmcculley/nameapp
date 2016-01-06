@@ -57,7 +57,7 @@ $(function() {
     console.log("posting ajax");
     $.ajax({
       type : "POST",
-      url : "http://demo.mkdir.info/create",
+      url : "/create",
         dataType : "json",
         data: {
           firstname: $("#firstname").val(),
